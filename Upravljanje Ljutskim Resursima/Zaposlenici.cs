@@ -24,17 +24,11 @@ namespace Upravljanje_Ljutskim_Resursima
 
         private void Zaposlenici_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'zAPOSLENICIDBDataSet.ZaposlenikTable' table. You can move, or remove it, as needed.
             this.zaposlenikTableTableAdapter.Fill(this.zAPOSLENICIDBDataSet.ZaposlenikTable);
             Greska.Visible = false;
-        }
-
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+            DatuRođenjaZaposlenika.CustomFormat = " ";
+            DatuRođenjaZaposlenika.Format = DateTimePickerFormat.Custom;
+        }    
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -46,21 +40,55 @@ namespace Upravljanje_Ljutskim_Resursima
         private void button1_Click(object sender, EventArgs e)
         {
             
-            if(String.IsNullOrEmpty(BrojMobitelaZaposlenika.Text) || String.IsNullOrEmpty(ImeZaposlenika.Text) || String.IsNullOrEmpty(PrezimeZaposlenika.Text)|| SoplZaposlenika.SelectedIndex == 0
-                || ObrazovanjeZaposlenika.SelectedIndex == 0 || PozicijaZaposlenika.SelectedIndex == 0 || String.IsNullOrEmpty(AdresaZaposlenika.Text))
-            {              
-               Greska.Visible = true;
-            }
-            else
-            {
-               
+            
+                
+                if (String.IsNullOrEmpty(BrojMobitelaZaposlenika.Text) || String.IsNullOrEmpty(ImeZaposlenika.Text) || String.IsNullOrEmpty(PrezimeZaposlenika.Text) || SoplZaposlenika.SelectedIndex == null
+                    || ObrazovanjeZaposlenika.SelectedIndex == null || PozicijaZaposlenika.SelectedIndex == null || String.IsNullOrEmpty(AdresaZaposlenika.Text) || DatuRođenjaZaposlenika.CustomFormat == " ")
+                {
+                    Greska.Visible = true;
+                }
+                else
+                {
                 this.zaposlenikTableBindingSource.AddNew();
-                this.dataGridView1.DataSource = this.zaposlenikTableBindingSource;
-                Greska.Visible = false;
+                this.zaposlenikTableBindingSource.EndEdit();
+                this.zaposlenikTableTableAdapter.Update(this.zAPOSLENICIDBDataSet.ZaposlenikTable);
+               
+                    Greska.Visible = false;
+                    DatuRođenjaZaposlenika.CustomFormat = " ";
+                    DatuRođenjaZaposlenika.Format = DateTimePickerFormat.Custom;
+                
             }
+           
             
         }
 
-       
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.zaposlenikTableBindingSource.RemoveCurrent();             
+            }
+            catch 
+            {
+                return;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.zaposlenikTableBindingSource.EndEdit();
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DatuRođenjaZaposlenika_ValueChanged(object sender, EventArgs e)
+        {
+            DatuRođenjaZaposlenika.CustomFormat = "dd/MM/yyyy";
+            DatuRođenjaZaposlenika.Format = DateTimePickerFormat.Custom;
+        }
     }
 }

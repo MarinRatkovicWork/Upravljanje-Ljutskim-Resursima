@@ -515,8 +515,7 @@ namespace Upravljanje_Ljutskim_Resursima {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnBrojZaposlenikaDB}, true));
                 this.columnBrojZaposlenikaDB.AutoIncrement = true;
-                this.columnBrojZaposlenikaDB.AutoIncrementSeed = -1;
-                this.columnBrojZaposlenikaDB.AutoIncrementStep = -1;
+                this.columnBrojZaposlenikaDB.AutoIncrementSeed = 1;
                 this.columnBrojZaposlenikaDB.AllowDBNull = false;
                 this.columnBrojZaposlenikaDB.Unique = true;
                 this.columnImeZaposlenikaDB.MaxLength = 50;

@@ -31,7 +31,13 @@ namespace Upravljanje_Ljutskim_Resursima
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zaposlenici));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Greska = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -73,7 +79,7 @@ namespace Upravljanje_Ljutskim_Resursima
             this.label11 = new System.Windows.Forms.Label();
             this.zaposlenikTableTableAdapter = new Upravljanje_Ljutskim_Resursima.ZAPOSLENICIDBDataSetTableAdapters.ZaposlenikTableTableAdapter();
             this.tableAdapterManager = new Upravljanje_Ljutskim_Resursima.ZAPOSLENICIDBDataSetTableAdapters.TableAdapterManager();
-            this.Greska = new System.Windows.Forms.Label();
+            this.zaposlenicidbDataSet1 = new Upravljanje_Ljutskim_Resursima.ZAPOSLENICIDBDataSet();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -82,6 +88,7 @@ namespace Upravljanje_Ljutskim_Resursima
             ((System.ComponentModel.ISupportInitialize)(this.zaposlenikTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zAPOSLENICIDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zaposlenicidbDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -118,6 +125,17 @@ namespace Upravljanje_Ljutskim_Resursima
             this.panel1.Size = new System.Drawing.Size(1389, 642);
             this.panel1.TabIndex = 0;
             // 
+            // Greska
+            // 
+            this.Greska.AutoSize = true;
+            this.Greska.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Greska.ForeColor = System.Drawing.Color.Red;
+            this.Greska.Location = new System.Drawing.Point(289, 19);
+            this.Greska.Name = "Greska";
+            this.Greska.Size = new System.Drawing.Size(299, 33);
+            this.Greska.TabIndex = 31;
+            this.Greska.Text = "Krivo uneseni podaci";
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
@@ -150,7 +168,30 @@ namespace Upravljanje_Ljutskim_Resursima
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle6.NullValue = null;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.brojZaposlenikaDBDataGridViewTextBoxColumn,
@@ -163,19 +204,51 @@ namespace Upravljanje_Ljutskim_Resursima
             this.obrazovanjeZaposlenikaDBDataGridViewTextBoxColumn,
             this.godRodZaposlenikaDBDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.zaposlenikTableBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(604, 3);
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.dataGridView1.Location = new System.Drawing.Point(607, 3);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Purple;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Purple;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Purple;
+            this.dataGridView1.RowTemplate.Height = 26;
+            this.dataGridView1.RowTemplate.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(782, 608);
             this.dataGridView1.TabIndex = 27;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // brojZaposlenikaDBDataGridViewTextBoxColumn
             // 
             this.brojZaposlenikaDBDataGridViewTextBoxColumn.DataPropertyName = "BrojZaposlenikaDB";
-            this.brojZaposlenikaDBDataGridViewTextBoxColumn.HeaderText = "Broj";
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Purple;
+            this.brojZaposlenikaDBDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.brojZaposlenikaDBDataGridViewTextBoxColumn.HeaderText = "Broj Zaposlenika";
             this.brojZaposlenikaDBDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.brojZaposlenikaDBDataGridViewTextBoxColumn.Name = "brojZaposlenikaDBDataGridViewTextBoxColumn";
+            this.brojZaposlenikaDBDataGridViewTextBoxColumn.ReadOnly = true;
             this.brojZaposlenikaDBDataGridViewTextBoxColumn.Width = 125;
             // 
             // imeZaposlenikaDBDataGridViewTextBoxColumn
@@ -184,6 +257,7 @@ namespace Upravljanje_Ljutskim_Resursima
             this.imeZaposlenikaDBDataGridViewTextBoxColumn.HeaderText = "Ime";
             this.imeZaposlenikaDBDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.imeZaposlenikaDBDataGridViewTextBoxColumn.Name = "imeZaposlenikaDBDataGridViewTextBoxColumn";
+            this.imeZaposlenikaDBDataGridViewTextBoxColumn.ReadOnly = true;
             this.imeZaposlenikaDBDataGridViewTextBoxColumn.Width = 125;
             // 
             // prezimeZaposlenikaDBDataGridViewTextBoxColumn
@@ -192,6 +266,7 @@ namespace Upravljanje_Ljutskim_Resursima
             this.prezimeZaposlenikaDBDataGridViewTextBoxColumn.HeaderText = "Prezime";
             this.prezimeZaposlenikaDBDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.prezimeZaposlenikaDBDataGridViewTextBoxColumn.Name = "prezimeZaposlenikaDBDataGridViewTextBoxColumn";
+            this.prezimeZaposlenikaDBDataGridViewTextBoxColumn.ReadOnly = true;
             this.prezimeZaposlenikaDBDataGridViewTextBoxColumn.Width = 125;
             // 
             // adresaZaposlenikaDBDataGridViewTextBoxColumn
@@ -200,6 +275,7 @@ namespace Upravljanje_Ljutskim_Resursima
             this.adresaZaposlenikaDBDataGridViewTextBoxColumn.HeaderText = "Adresa";
             this.adresaZaposlenikaDBDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.adresaZaposlenikaDBDataGridViewTextBoxColumn.Name = "adresaZaposlenikaDBDataGridViewTextBoxColumn";
+            this.adresaZaposlenikaDBDataGridViewTextBoxColumn.ReadOnly = true;
             this.adresaZaposlenikaDBDataGridViewTextBoxColumn.Width = 125;
             // 
             // brojMobZaposlenikaDBDataGridViewTextBoxColumn
@@ -208,6 +284,7 @@ namespace Upravljanje_Ljutskim_Resursima
             this.brojMobZaposlenikaDBDataGridViewTextBoxColumn.HeaderText = "Mobitel";
             this.brojMobZaposlenikaDBDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.brojMobZaposlenikaDBDataGridViewTextBoxColumn.Name = "brojMobZaposlenikaDBDataGridViewTextBoxColumn";
+            this.brojMobZaposlenikaDBDataGridViewTextBoxColumn.ReadOnly = true;
             this.brojMobZaposlenikaDBDataGridViewTextBoxColumn.Width = 125;
             // 
             // spolZaposlenikaDBDataGridViewTextBoxColumn
@@ -216,6 +293,7 @@ namespace Upravljanje_Ljutskim_Resursima
             this.spolZaposlenikaDBDataGridViewTextBoxColumn.HeaderText = "Spol";
             this.spolZaposlenikaDBDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.spolZaposlenikaDBDataGridViewTextBoxColumn.Name = "spolZaposlenikaDBDataGridViewTextBoxColumn";
+            this.spolZaposlenikaDBDataGridViewTextBoxColumn.ReadOnly = true;
             this.spolZaposlenikaDBDataGridViewTextBoxColumn.Width = 125;
             // 
             // pozicijaZaposlenikaDBDataGridViewTextBoxColumn
@@ -224,6 +302,7 @@ namespace Upravljanje_Ljutskim_Resursima
             this.pozicijaZaposlenikaDBDataGridViewTextBoxColumn.HeaderText = "Pozicija";
             this.pozicijaZaposlenikaDBDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.pozicijaZaposlenikaDBDataGridViewTextBoxColumn.Name = "pozicijaZaposlenikaDBDataGridViewTextBoxColumn";
+            this.pozicijaZaposlenikaDBDataGridViewTextBoxColumn.ReadOnly = true;
             this.pozicijaZaposlenikaDBDataGridViewTextBoxColumn.Width = 125;
             // 
             // obrazovanjeZaposlenikaDBDataGridViewTextBoxColumn
@@ -232,6 +311,7 @@ namespace Upravljanje_Ljutskim_Resursima
             this.obrazovanjeZaposlenikaDBDataGridViewTextBoxColumn.HeaderText = "Obrazovanje";
             this.obrazovanjeZaposlenikaDBDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.obrazovanjeZaposlenikaDBDataGridViewTextBoxColumn.Name = "obrazovanjeZaposlenikaDBDataGridViewTextBoxColumn";
+            this.obrazovanjeZaposlenikaDBDataGridViewTextBoxColumn.ReadOnly = true;
             this.obrazovanjeZaposlenikaDBDataGridViewTextBoxColumn.Width = 125;
             // 
             // godRodZaposlenikaDBDataGridViewTextBoxColumn
@@ -240,6 +320,7 @@ namespace Upravljanje_Ljutskim_Resursima
             this.godRodZaposlenikaDBDataGridViewTextBoxColumn.HeaderText = "GodRod";
             this.godRodZaposlenikaDBDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.godRodZaposlenikaDBDataGridViewTextBoxColumn.Name = "godRodZaposlenikaDBDataGridViewTextBoxColumn";
+            this.godRodZaposlenikaDBDataGridViewTextBoxColumn.ReadOnly = true;
             this.godRodZaposlenikaDBDataGridViewTextBoxColumn.Width = 125;
             // 
             // zaposlenikTableBindingSource
@@ -280,6 +361,7 @@ namespace Upravljanje_Ljutskim_Resursima
             this.button3.TabIndex = 25;
             this.button3.Text = "Izbriši";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -294,6 +376,7 @@ namespace Upravljanje_Ljutskim_Resursima
             this.button2.TabIndex = 24;
             this.button2.Text = "Uredi";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -335,6 +418,7 @@ namespace Upravljanje_Ljutskim_Resursima
             // DatuRođenjaZaposlenika
             // 
             this.DatuRođenjaZaposlenika.CalendarForeColor = System.Drawing.Color.Purple;
+            this.DatuRođenjaZaposlenika.CustomFormat = "";
             this.DatuRođenjaZaposlenika.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.zaposlenikTableBindingSource, "GodRodZaposlenikaDB", true));
             this.DatuRođenjaZaposlenika.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DatuRođenjaZaposlenika.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -342,6 +426,8 @@ namespace Upravljanje_Ljutskim_Resursima
             this.DatuRođenjaZaposlenika.Name = "DatuRođenjaZaposlenika";
             this.DatuRođenjaZaposlenika.Size = new System.Drawing.Size(266, 39);
             this.DatuRođenjaZaposlenika.TabIndex = 20;
+            this.DatuRođenjaZaposlenika.Value = new System.DateTime(2021, 11, 16, 0, 0, 0, 0);
+            this.DatuRođenjaZaposlenika.ValueChanged += new System.EventHandler(this.DatuRođenjaZaposlenika_ValueChanged);
             // 
             // label8
             // 
@@ -356,8 +442,11 @@ namespace Upravljanje_Ljutskim_Resursima
             // 
             // ObrazovanjeZaposlenika
             // 
+            this.ObrazovanjeZaposlenika.BackColor = System.Drawing.Color.Purple;
             this.ObrazovanjeZaposlenika.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zaposlenikTableBindingSource, "ObrazovanjeZaposlenikaDB", true));
+            this.ObrazovanjeZaposlenika.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ObrazovanjeZaposlenika.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ObrazovanjeZaposlenika.ForeColor = System.Drawing.Color.White;
             this.ObrazovanjeZaposlenika.FormattingEnabled = true;
             this.ObrazovanjeZaposlenika.Items.AddRange(new object[] {
             "",
@@ -385,8 +474,11 @@ namespace Upravljanje_Ljutskim_Resursima
             // 
             // PozicijaZaposlenika
             // 
+            this.PozicijaZaposlenika.BackColor = System.Drawing.Color.Purple;
             this.PozicijaZaposlenika.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zaposlenikTableBindingSource, "PozicijaZaposlenikaDB", true));
+            this.PozicijaZaposlenika.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PozicijaZaposlenika.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PozicijaZaposlenika.ForeColor = System.Drawing.Color.White;
             this.PozicijaZaposlenika.FormattingEnabled = true;
             this.PozicijaZaposlenika.Items.AddRange(new object[] {
             "",
@@ -413,8 +505,12 @@ namespace Upravljanje_Ljutskim_Resursima
             // 
             // SoplZaposlenika
             // 
+            this.SoplZaposlenika.BackColor = System.Drawing.Color.Purple;
+            this.SoplZaposlenika.Cursor = System.Windows.Forms.Cursors.Default;
             this.SoplZaposlenika.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.zaposlenikTableBindingSource, "SpolZaposlenikaDB", true));
+            this.SoplZaposlenika.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SoplZaposlenika.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoplZaposlenika.ForeColor = System.Drawing.Color.White;
             this.SoplZaposlenika.FormattingEnabled = true;
             this.SoplZaposlenika.Items.AddRange(new object[] {
             "",
@@ -505,7 +601,6 @@ namespace Upravljanje_Ljutskim_Resursima
             this.ImeZaposlenika.Name = "ImeZaposlenika";
             this.ImeZaposlenika.Size = new System.Drawing.Size(266, 40);
             this.ImeZaposlenika.TabIndex = 6;
-            this.ImeZaposlenika.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox1
             // 
@@ -549,16 +644,10 @@ namespace Upravljanje_Ljutskim_Resursima
             this.tableAdapterManager.UpdateOrder = Upravljanje_Ljutskim_Resursima.ZAPOSLENICIDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.ZaposlenikTableTableAdapter = this.zaposlenikTableTableAdapter;
             // 
-            // Greska
+            // zaposlenicidbDataSet1
             // 
-            this.Greska.AutoSize = true;
-            this.Greska.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Greska.ForeColor = System.Drawing.Color.Red;
-            this.Greska.Location = new System.Drawing.Point(289, 19);
-            this.Greska.Name = "Greska";
-            this.Greska.Size = new System.Drawing.Size(299, 33);
-            this.Greska.TabIndex = 31;
-            this.Greska.Text = "Krivo uneseni podaci";
+            this.zaposlenicidbDataSet1.DataSetName = "ZAPOSLENICIDBDataSet";
+            this.zaposlenicidbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Zaposlenici
             // 
@@ -584,6 +673,7 @@ namespace Upravljanje_Ljutskim_Resursima
             ((System.ComponentModel.ISupportInitialize)(this.zaposlenikTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zAPOSLENICIDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zaposlenicidbDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -624,6 +714,8 @@ namespace Upravljanje_Ljutskim_Resursima
         private System.Windows.Forms.BindingSource zaposlenikTableBindingSource;
         private ZAPOSLENICIDBDataSetTableAdapters.ZaposlenikTableTableAdapter zaposlenikTableTableAdapter;
         private ZAPOSLENICIDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.Label Greska;
+        private ZAPOSLENICIDBDataSet zaposlenicidbDataSet1;
         private System.Windows.Forms.DataGridViewTextBoxColumn brojZaposlenikaDBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imeZaposlenikaDBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prezimeZaposlenikaDBDataGridViewTextBoxColumn;
@@ -633,6 +725,5 @@ namespace Upravljanje_Ljutskim_Resursima
         private System.Windows.Forms.DataGridViewTextBoxColumn pozicijaZaposlenikaDBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn obrazovanjeZaposlenikaDBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn godRodZaposlenikaDBDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label Greska;
     }
 }
